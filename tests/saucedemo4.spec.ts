@@ -4,15 +4,7 @@ import { LoginPage } from './pageobjects/LoginPage';
 test('purchase an item', async ({ page }) => {
    await page.goto('https://www.saucedemo.com/');
 
-   // await page.getByRole('textbox', { name: 'Username'}).fill('standard_user');
-   // await page.getByRole('textbox', { name: 'Password'}).fill('secret_sauce');
-   // await page.getByRole('button', { name: 'Login'}).click();
-
    const loginPage = new LoginPage(page);
-
-   // await loginPage.fillUsername('standard_user');
-   // await loginPage.fillPassword('secret_sauce');
-   // await loginPage.clickOnLogin();
 
    await loginPage.loginWithCredentials('standard_user', 'secret_sauce');
 
@@ -36,10 +28,6 @@ test('purchase an item', async ({ page }) => {
 
    await page.locator('.shopping_cart_link').click();
 
-   //await page.pause();
-
-   //expect(await page.getByRole('button', {name: 'Checkout'})).toBeVisible();
-
    const actualName = await page.locator('.inventory_item_name').innerText();
    const actualDescription = await page.locator('.inventory_item_desc').innerText();
    const actualPrice = await page.locator('.inventory_item_price').innerText();
@@ -54,21 +42,11 @@ test('purchase an item', async ({ page }) => {
 
    await expect(page.getByRole('button', {name: 'Continue'})).toBeVisible();
 
-   //await page.pause();
-
    await page.getByRole('button', { name: 'Continue'}).click();
    await page.getByRole('button', { name: 'Finish'}).click();
-
-   //await expect(page.getByText('THANK YOU FOR YOUR ORDER')).toBeVisible();
 
    await expect(page.getByRole('heading', { name: 'THANK YOU FOR YOUR ORDER' })).toBeVisible();
 
    await page.pause();
 
-});
-
-test('navigate', async ({ page }) => {
-   await page.goto(process.env.URL);
-
-   await page.pause();
 });
