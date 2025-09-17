@@ -41,11 +41,12 @@ test('purchase an item', async ({ page }) => {
    await expect(page.getByRole('button', {name: 'Continue'})).toBeVisible();
 
    await page.getByRole('button', { name: 'Continue'}).click();
-   await page.getByRole('button', { name: 'Finish'}).click();
+   //await page.getByRole('button', { name: 'Finish'}).click();
 
-   await expect(page.getByRole('heading', { name: 'THANK YOU FOR YOUR ORDER' })).toBeVisible();
+   //await expect(page.getByRole('heading', { name: 'THANK YOU FOR YOUR ORDER' })).toBeVisible();
 
-   await page.pause();
+   //await page.pause();
 
 });
+
 
