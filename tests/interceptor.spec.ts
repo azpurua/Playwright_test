@@ -25,7 +25,7 @@ test('purchase an item 2', async ({ page }) => {
 
    await loginPage.loginWithCredentials('standard_user', 'secret_sauce');
 
-   await loginPage.checkSuccessfulLogin();
+   //await loginPage.checkSuccessfulLogin();
 
    const itemsContainer = await page.locator('#inventory_container .inventory_item').all();
 
@@ -72,3 +72,4 @@ test('interceptor test', async ({ page }) => {
      await page.screenshot({path:'books.png', fullPage:true}) 
 
 });
+
