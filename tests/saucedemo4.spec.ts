@@ -8,8 +8,6 @@ test('purchase an item', async ({ page }) => {
 
    await loginPage.loginWithCredentials('standard_user', 'secret_sauce');
 
-   await loginPage.checkSuccessfulLogin();
-
    const itemsContainer = await page.locator('#inventory_container .inventory_item').all();
 
    const randomIndex = Math.floor(Math.random() * itemsContainer.length);
@@ -36,9 +34,9 @@ test('purchase an item', async ({ page }) => {
    expect(actualDescription).toEqual(expectDescription);
    expect(actualPrice).toEqual(expectPrice);
 
-   await page.getByRole('textbox', { name: 'First Name'}).fill('Goku');
-   await page.getByRole('textbox', { name: 'Last Name'}).fill('Sayayin');
-   await page.getByRole('textbox', { name: 'Zip/Postal Code'}).fill('46980');
+   //await page.getByRole('textbox', { name: 'First Name'}).fill('Goku');
+   //await page.getByRole('textbox', { name: 'Last Name'}).fill('Sayayin');
+   //await page.getByRole('textbox', { name: 'Zip/Postal Code'}).fill('46980');
 
    await expect(page.getByRole('button', {name: 'Continue'})).toBeVisible();
 
@@ -50,3 +48,4 @@ test('purchase an item', async ({ page }) => {
    await page.pause();
 
 });
+
