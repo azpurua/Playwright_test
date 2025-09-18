@@ -8,17 +8,4 @@ pipeline {
          }
       }
    }
-   
-   post{
-       always{
-           publishHTML([
-                            reportName : 'Playwright Report',
-                            reportDir: 'playwright-report',
-                            reportFiles: 'index.html',
-                            keepAll: true,
-                            alwaysLinkToLastBuild: true,
-                            allowMissing: false
-                        ])
-       }
-   }
 }
